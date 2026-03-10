@@ -7,5 +7,5 @@ RUN npm ci && npm run build -- --configuration=production
 
 FROM nginx:1.27-alpine
 COPY infra/nginx/web.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /app/web/dist/web /usr/share/nginx/html
+COPY --from=build /app/web/dist/web/browser /usr/share/nginx/html
 EXPOSE 80
