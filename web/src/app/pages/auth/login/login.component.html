@@ -1,0 +1,23 @@
+<div class="auth-wrapper">
+  <mat-card>
+    <h2>登录 PetCare System</h2>
+    <p>使用邮箱 / 手机 + 密码登录，后续可绑定微信</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>邮箱或手机号</mat-label>
+        <input matInput formControlName="identifier" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>密码</mat-label>
+        <input matInput type="password" formControlName="password" />
+      </mat-form-field>
+
+      <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">
+        登录
+      </button>
+      <button mat-button routerLink="/register">没有账号？去注册</button>
+    </form>
+  </mat-card>
+</div>

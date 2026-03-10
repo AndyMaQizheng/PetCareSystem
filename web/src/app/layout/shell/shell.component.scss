@@ -1,0 +1,78 @@
+.shell-container {
+  height: 100vh;
+  background: #f5f7fb;
+}
+
+.app-sidenav {
+  width: 260px;
+  border: none;
+  padding: 1rem 0.5rem;
+  background: #0f172a;
+  color: #f8fafc;
+
+  .sidenav-header {
+    padding: 0 1rem 1.25rem;
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #cbd5f5;
+    }
+  }
+
+  mat-list-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+  }
+
+  .badge {
+    margin-left: auto;
+    background: #fbbf24;
+    color: #0f172a;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+}
+
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  .toolbar-title {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }
+
+  .toolbar-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .menu-button {
+    margin-right: 0.5rem;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+}
+
+.content {
+  padding: 1.5rem;
+  min-height: calc(100vh - 64px);
+}
+
+@media (max-width: 600px) {
+  .app-toolbar {
+    .toolbar-subtitle {
+      display: none;
+    }
+  }
+}

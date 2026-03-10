@@ -3,22 +3,22 @@
 Use this checklist to monitor Angular Web App progress before we advance to backend/database integration (Phase 2) and the WeChat mini program.
 
 ## Global
-- [ ] Shell layout (sidenav, responsive breakpoints, theming)
+- [x] Shell layout (sidenav, responsive breakpoints, theming)
 - [ ] Auth guard + route protection
 
 ## Auth
-- [ ] Login page (email/phone + password)
-- [ ] Registration page + validation
+- [x] Login page (email/phone + password)
+- [x] Registration page + validation
 - [ ] Session management (JWT interceptor stub)
 
 ## Dashboard
-- [ ] KPIs & cards (pets summary, latest insights, reminders)
+- [x] KPIs & cards (pets summary, latest insights, reminders) — 静态数据占位
 - [ ] Activity feed component
 
 ## Pets Module
-- [ ] `/pets` list view with filters/search
+- [x] `/pets` list view骨架（静态数据）
 - [ ] Create pet wizard (`/pets/new`)
-- [ ] Pet detail tabs (Overview / Timeline / Photos / Insights / Settings)
+- [x] Pet detail tabs雏形（概览/动态占位）
 - [ ] Event log modal + type-specific forms
 
 ## Media & Insights
@@ -26,12 +26,12 @@ Use this checklist to monitor Angular Web App progress before we advance to back
 - [ ] Insights list & detail view
 
 ## Reminders
-- [ ] Reminder center list + mark-as-done interactions
+- [x] Reminder center list + mark-as-done交互雏形
 
 ## Settings
-- [ ] Profile edit page (contact info, locale)
-- [ ] Notification preferences
-- [ ] WeChat binding UI placeholder
+- [x] Profile edit page (静态占位)
+- [x] Notification preferences
+- [x] WeChat binding UI placeholder
 
 ## Infrastructure / DX
 - [x] Angular app scaffolded (`web/`)

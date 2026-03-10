@@ -1,0 +1,40 @@
+<div class="dashboard-grid">
+  <mat-card class="metric" *ngFor="let metric of metrics">
+    <div class="metric-icon">
+      <mat-icon>{{ metric.icon }}</mat-icon>
+    </div>
+    <div class="metric-body">
+      <p class="metric-label">{{ metric.label }}</p>
+      <p class="metric-value">{{ metric.value }}</p>
+      <p class="metric-trend">{{ metric.trend }}</p>
+    </div>
+  </mat-card>
+</div>
+
+<div class="panels">
+  <mat-card class="panel">
+    <div class="panel-header">
+      <h3>即将到期的提醒</h3>
+      <mat-chip-set>
+        <mat-chip color="primary" selected>未来 7 天</mat-chip>
+      </mat-chip-set>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let reminder of upcomingReminders">
+        <mat-icon matListItemIcon>event</mat-icon>
+        <div matListItemTitle>{{ reminder.title }}</div>
+        <div matListItemLine>{{ reminder.type }} · {{ reminder.due }}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <mat-card class="panel">
+    <div class="panel-header">
+      <h3>最新 AI 建议</h3>
+    </div>
+    <div class="insight" *ngFor="let insight of latestInsights">
+      <p class="insight-pet">{{ insight.pet }}</p>
+      <p class="insight-text">{{ insight.summary }}</p>
+    </div>
+  </mat-card>
+</div>

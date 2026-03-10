@@ -1,0 +1,29 @@
+<div class="pets-header">
+  <div>
+    <h2>所有宠物</h2>
+    <p>快速查看每只宠物的健康状态与提醒</p>
+  </div>
+  <button mat-flat-button color="primary" routerLink="/pets/new">
+    <mat-icon>add</mat-icon>
+    新增宠物档案
+  </button>
+</div>
+
+<div class="pet-grid">
+  <mat-card *ngFor="let pet of pets">
+    <div class="pet-row">
+      <div class="avatar">{{ pet.avatar }}</div>
+      <div>
+        <h3>{{ pet.name }}</h3>
+        <p>{{ pet.species }} · {{ pet.age }}</p>
+      </div>
+    </div>
+    <p class="status">{{ pet.status }}</p>
+    <div class="actions">
+      <button mat-stroked-button color="primary" [routerLink]="['/pets', pet.id]">查看详情</button>
+      <button mat-icon-button color="primary">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+</div>

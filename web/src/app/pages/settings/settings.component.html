@@ -1,0 +1,21 @@
+<div class="settings-grid">
+  <mat-card>
+    <h3>个人信息</h3>
+    <p>负责人：{{ profile.caretaker }}</p>
+    <p>邮箱：{{ profile.email }}</p>
+    <p>语言：{{ profile.locale }}</p>
+  </mat-card>
+
+  <mat-card>
+    <h3>通知偏好</h3>
+    <mat-slide-toggle checked>提醒推送（App）</mat-slide-toggle>
+    <mat-slide-toggle checked>邮件摘要</mat-slide-toggle>
+    <mat-slide-toggle>短信备用</mat-slide-toggle>
+  </mat-card>
+
+  <mat-card>
+    <h3>微信绑定</h3>
+    <p>未绑定任何 openid</p>
+    <button mat-stroked-button color="primary">生成绑定二维码</button>
+  </mat-card>
+</div>

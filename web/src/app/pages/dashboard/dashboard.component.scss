@@ -1,0 +1,78 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+
+    .metric-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(59, 130, 246, 0.15);
+      display: grid;
+      place-items: center;
+      mat-icon {
+        color: #2563eb;
+      }
+    }
+
+    .metric-label {
+      margin: 0;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    .metric-value {
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .metric-trend {
+      margin: 0;
+      color: #059669;
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1rem;
+
+  .panel {
+    padding: 1.25rem;
+  }
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .insight {
+    background: #f8fafc;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+
+    .insight-pet {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .insight-text {
+      margin: 0.25rem 0 0;
+      color: #4b5563;
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<h2>提醒中心</h2>
+<p class="sub">所有提醒集中展示，可批量确认或延后</p>
+
+<div class="reminder-list">
+  <mat-card *ngFor="let reminder of reminders">
+    <div>
+      <h3>{{ reminder.title }}</h3>
+      <p>{{ reminder.type }} · {{ reminder.due }}</p>
+    </div>
+    <mat-chip [color]="reminder.severity === 'high' ? 'warn' : 'primary'" selected>{{ reminder.severity === 'high' ? '高优' : '跟进' }}</mat-chip>
+    <div class="actions">
+      <button mat-stroked-button color="primary">标记完成</button>
+      <button mat-button>稍后提醒</button>
+    </div>
+  </mat-card>
+</div>

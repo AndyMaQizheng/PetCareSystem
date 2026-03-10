@@ -1,0 +1,27 @@
+<div class="detail-layout">
+  <mat-card class="summary">
+    <div class="header">
+      <div>
+        <h2>Lucky</h2>
+        <p>柴犬 · 公 · 2 岁 7 个月</p>
+      </div>
+      <button mat-stroked-button color="primary">编辑档案</button>
+    </div>
+    <div class="tags">
+      <mat-chip-set>
+        <mat-chip *ngFor="let tag of tags" highlighted>{{ tag }}</mat-chip>
+      </mat-chip-set>
+    </div>
+  </mat-card>
+
+  <mat-card>
+    <h3>最新动态</h3>
+    <div class="timeline" *ngFor="let item of timeline">
+      <mat-icon>{{ item.icon }}</mat-icon>
+      <div>
+        <p class="title">{{ item.label }}</p>
+        <p class="time">{{ item.time }}</p>
+      </div>
+    </div>
+  </mat-card>
+</div>
