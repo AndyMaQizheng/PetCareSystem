@@ -1,0 +1,11 @@
+.git
+node_modules/
+web/node_modules/
+web/dist/
+backend/.gradle/
+backend/build/
+infra/.env
+memory/
+skills/
+.openclaw/
+.learnings/
