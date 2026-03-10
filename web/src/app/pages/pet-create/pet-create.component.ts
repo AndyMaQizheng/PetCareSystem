@@ -33,6 +33,13 @@ export class PetCreateComponent {
   private readonly messageService = inject(MessageService);
 
   readonly step = signal(1);
+  readonly speciesOptions = [
+    { value: 'DOG', label: '狗' },
+    { value: 'CAT', label: '猫' },
+    { value: 'RABBIT', label: '兔子' },
+    { value: 'BIRD', label: '鸟类' },
+    { value: 'OTHER', label: '其他' }
+  ];
 
   readonly form = this.fb.group({
     name: ['', Validators.required],
@@ -47,30 +54,30 @@ export class PetCreateComponent {
     dueDate: ['', Validators.required]
   });
 
-  markInvalidAndToast(message: string): void {
-    this.messageService.add({ severity: 'warn', summary: '提示', detail: message });
+  private showToast(severity: 'success' | 'info' | 'warn' | 'error', detail: string): void {
+    this.messageService.add({ severity, summary: '提示', detail, life: 3000 });
   }
 
   goToNext(): void {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
-      this.markInvalidAndToast('请先完善基础信息');
+      this.showToast('warn', '请先完善基础信息');
       return;
     }
     this.step.set(2);
-    this.messageService.add({ severity: 'success', summary: '基础信息已保存', detail: '继续配置疫苗计划' });
+    this.showToast('success', '基础信息已保存，继续配置疫苗计划');
   }
 
   saveDraft(): void {
-    this.messageService.add({ severity: 'info', summary: '草稿已保存', detail: '稍后可继续编辑' });
+    this.showToast('success', '草稿已保存');
   }
 
   completeWizard(): void {
     if (this.scheduleForm.invalid) {
       this.scheduleForm.markAllAsTouched();
-      this.markInvalidAndToast('请补充疫苗计划');
+      this.showToast('error', '请补充疫苗计划');
       return;
     }
-    this.messageService.add({ severity: 'success', summary: '宠物档案已提交', detail: '接下来会接入后端接口' });
+    this.showToast('success', '宠物档案已提交（等待后端联通）');
   }
 }

@@ -17,6 +17,7 @@ export class PetDetailComponent {
   private readonly route = inject(ActivatedRoute);
 
   readonly focus = this.route.snapshot.queryParamMap.get('focus');
+  readonly isActivePet = true; // TODO: replace with real status once后端接入
 
   readonly tags = ['狂犬疫苗 3 天后', '上周腹泻记录', 'AI 建议待确认'];
 

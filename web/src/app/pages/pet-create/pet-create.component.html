@@ -26,9 +26,9 @@
           <mat-form-field appearance="outline">
             <mat-label>物种 *</mat-label>
             <mat-select formControlName="species">
-              <mat-option value="DOG">狗</mat-option>
-              <mat-option value="CAT">猫</mat-option>
-              <mat-option value="OTHER">其他</mat-option>
+              <mat-option *ngFor="let option of speciesOptions" [value]="option.value">
+                {{ option.label }}
+              </mat-option>
             </mat-select>
           </mat-form-field>
           <p-message
@@ -82,7 +82,7 @@
           </mat-form-field>
           <p-message
             *ngIf="scheduleForm.controls.dueDate.invalid && scheduleForm.controls.dueDate.touched"
-            severity="error"
+            severity="warn"
             text="请选择时间"
           ></p-message>
 
