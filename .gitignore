@@ -11,3 +11,10 @@ USER.md
 TOOLS.md
 IDENTITY.md
 MEMORY.md
+# Build artifacts
+node_modules/
+backend/.gradle/
+backend/build/
+backend/out/
+web/dist/
+infra/.env
