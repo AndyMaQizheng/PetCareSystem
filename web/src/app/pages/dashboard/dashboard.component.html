@@ -1,5 +1,11 @@
 <div class="dashboard-grid">
-  <mat-card class="metric" *ngFor="let metric of metrics">
+  <mat-card
+    class="metric"
+    *ngFor="let metric of metrics"
+    (click)="navigateTo(metric.link)"
+    role="button"
+    tabindex="0"
+  >
     <div class="metric-icon">
       <mat-icon>{{ metric.icon }}</mat-icon>
     </div>

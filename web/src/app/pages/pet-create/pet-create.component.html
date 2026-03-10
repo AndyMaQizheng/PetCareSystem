@@ -1,0 +1,42 @@
+<div class="create-wrapper">
+  <mat-card>
+    <h2>新增宠物档案</h2>
+    <p>创建基础信息，后续可在详情页补充疫苗与提醒</p>
+
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>昵称</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>品种</mat-label>
+        <input matInput formControlName="breed" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>物种</mat-label>
+        <mat-select formControlName="species">
+          <mat-option value="DOG">狗</mat-option>
+          <mat-option value="CAT">猫</mat-option>
+          <mat-option value="OTHER">其他</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>生日</mat-label>
+        <input matInput type="date" formControlName="birthday" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>备注</mat-label>
+        <textarea matInput rows="3" formControlName="notes"></textarea>
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-stroked-button type="button" (click)="saveDraft()">保存草稿</button>
+        <button mat-flat-button color="primary" type="button">下一步：疫苗计划</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

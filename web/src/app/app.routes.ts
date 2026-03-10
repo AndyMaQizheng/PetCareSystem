@@ -24,6 +24,10 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/pets-list/pets-list.component').then(m => m.PetsListComponent)
       },
       {
+        path: 'pets/new',
+        loadComponent: () => import('./pages/pet-create/pet-create.component').then(m => m.PetCreateComponent)
+      },
+      {
         path: 'pets/:id',
         loadComponent: () => import('./pages/pet-detail/pet-detail.component').then(m => m.PetDetailComponent)
       },

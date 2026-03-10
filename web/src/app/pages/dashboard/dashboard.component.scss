@@ -9,6 +9,14 @@
     align-items: center;
     gap: 1rem;
     padding: 1.25rem;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+      transform: translateY(-2px);
+    }
 
     .metric-icon {
       width: 48px;

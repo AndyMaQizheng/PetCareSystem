@@ -1,0 +1,22 @@
+.create-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+
+  mat-card {
+    width: min(640px, 95vw);
+    padding: 1.5rem;
+  }
+
+  form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+}

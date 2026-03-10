@@ -2,8 +2,8 @@
   <mat-sidenav
     class="app-sidenav"
     [mode]="isHandset() ? 'over' : 'side'"
-    [fixedInViewport]="isHandset()"
-    #drawer
+    [opened]="drawerOpened()"
+    (openedChange)="drawerOpened.set($event)"
   >
     <div class="sidenav-header">
       <div class="logo">PetCare</div>
@@ -11,7 +11,13 @@
     </div>
     <mat-divider></mat-divider>
     <mat-nav-list>
-      <a mat-list-item *ngFor="let item of navItems" [routerLink]="item.link" routerLinkActive="active">
+      <a
+        mat-list-item
+        *ngFor="let item of navItems"
+        [routerLink]="item.link"
+        routerLinkActive="active"
+        (click)="closeMenuOnHandset()"
+      >
         <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
         <span matListItemTitle>{{ item.label }}</span>
         <span class="badge" *ngIf="item.badge">{{ item.badge }}</span>
@@ -21,19 +27,19 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="app-toolbar">
-      <button mat-icon-button class="menu-button" (click)="drawer.toggle()" *ngIf="isHandset()">
+      <button mat-icon-button class="menu-button" (click)="toggleMenu()" *ngIf="isHandset()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="toolbar-title">PetCare System</span>
+      <span class="toolbar-title" routerLink="/">PetCare System</span>
       <span class="toolbar-subtitle">全渠道宠物健康 + 看护协同平台</span>
       <span class="spacer"></span>
+      <button mat-icon-button routerLink="/reminders">
+        <mat-icon>notifications</mat-icon>
+      </button>
       <button mat-icon-button>
         <mat-icon>refresh</mat-icon>
       </button>
-      <button mat-icon-button>
-        <mat-icon>dark_mode</mat-icon>
-      </button>
-      <button mat-icon-button>
+      <button mat-icon-button routerLink="/settings">
         <mat-icon>account_circle</mat-icon>
       </button>
     </mat-toolbar>
