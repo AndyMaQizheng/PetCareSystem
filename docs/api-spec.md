@@ -18,18 +18,18 @@ Authentication: JWT Bearer tokens unless stated otherwise.
 ### Sample: `POST /auth/register`
 ```json
 {
-  "email": "andy@example.com",
+  "email": "caretaker@example.com",
   "phone": "+1-240-555-0101",
   "password": "P@ssw0rd!",
-  "fullName": "Andy Ma"
+  "fullName": "Li Wei"
 }
 ```
 Response `201 Created`:
 ```json
 {
   "id": "usr_01",
-  "email": "andy@example.com",
-  "fullName": "Andy Ma",
+  "email": "caretaker@example.com",
+  "fullName": "Li Wei",
   "role": "ADMIN"
 }
 ```
