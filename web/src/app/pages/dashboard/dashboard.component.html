@@ -38,9 +38,16 @@
     <div class="panel-header">
       <h3>最新 AI 建议</h3>
     </div>
-    <div class="insight" *ngFor="let insight of latestInsights">
+    <div
+      class="insight"
+      *ngFor="let insight of latestInsights"
+      (click)="goToInsight(insight.petId)"
+      role="button"
+      tabindex="0"
+    >
       <p class="insight-pet">{{ insight.pet }}</p>
       <p class="insight-text">{{ insight.summary }}</p>
+      <span class="link">查看详情 →</span>
     </div>
   </mat-card>
 </div>

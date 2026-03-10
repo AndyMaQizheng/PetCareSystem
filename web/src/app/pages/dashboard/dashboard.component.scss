@@ -71,6 +71,13 @@
     border-radius: 0.75rem;
     padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: #e0f2fe;
+    }
 
     .insight-pet {
       margin: 0;
@@ -81,6 +88,11 @@
       margin: 0.25rem 0 0;
       color: #4b5563;
       font-size: 0.9rem;
+    }
+
+    .link {
+      font-size: 0.85rem;
+      color: #2563eb;
     }
   }
 }

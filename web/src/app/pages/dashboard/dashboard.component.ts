@@ -14,6 +14,12 @@ interface MetricCard {
   link: string;
 }
 
+interface InsightCard {
+  pet: string;
+  petId: string;
+  summary: string;
+}
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -37,18 +43,24 @@ export class DashboardComponent {
     { title: 'Coco 绝育复诊', due: '下周一', type: 'VISIT' }
   ];
 
-  readonly latestInsights = [
+  readonly latestInsights: InsightCard[] = [
     {
       pet: 'Lucky',
+      petId: 'pet-001',
       summary: '本周饮水量偏低，建议加强湿粮并记录尿量变化。'
     },
     {
       pet: 'Mimi',
+      petId: 'pet-002',
       summary: '夜间活动减少，建议检查互动玩具并记录睡眠。'
     }
   ];
 
   navigateTo(link: string): void {
     this.router.navigateByUrl(link);
+  }
+
+  goToInsight(petId: string): void {
+    this.router.navigate(['/pets', petId], { queryParams: { focus: 'insight' } });
   }
 }

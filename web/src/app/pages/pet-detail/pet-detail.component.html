@@ -10,6 +10,7 @@
     <div class="tags">
       <mat-chip-set>
         <mat-chip *ngFor="let tag of tags" highlighted>{{ tag }}</mat-chip>
+        <mat-chip color="accent" *ngIf="focus === 'insight'" selected>来自 Dashboard 的 AI 建议</mat-chip>
       </mat-chip-set>
     </div>
   </mat-card>

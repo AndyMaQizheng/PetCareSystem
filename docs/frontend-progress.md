@@ -12,13 +12,13 @@ Use this checklist to monitor Angular Web App progress before we advance to back
 - [ ] Session management (JWT interceptor stub)
 
 ## Dashboard
-- [x] KPIs & cards (pets summary, latest insights, reminders) — 静态数据占位
+- [x] KPIs & cards (宠物/提醒/事件/AI) + 路由联动
 - [ ] Activity feed component
 
 ## Pets Module
 - [x] `/pets` list view骨架（静态数据）
-- [ ] Create pet wizard (`/pets/new`)
-- [x] Pet detail tabs雏形（概览/动态占位）
+- [x] Create pet wizard (`/pets/new`) + PrimeNG 验证/Toast
+- [x] Pet detail tabs雏形（概览/动态/AI 标记）
 - [ ] Event log modal + type-specific forms
 
 ## Media & Insights

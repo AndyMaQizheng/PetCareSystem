@@ -1,42 +1,99 @@
-<div class="create-wrapper">
+<p-toast position="top-right"></p-toast>
+
+<div class="create-wrapper" [class.step-two]="step() === 2">
   <mat-card>
-    <h2>新增宠物档案</h2>
-    <p>创建基础信息，后续可在详情页补充疫苗与提醒</p>
+    <div class="step-header">
+      <span [class.active]="step() === 1">1. 基础信息</span>
+      <span [class.active]="step() === 2">2. 疫苗计划</span>
+    </div>
 
-    <form [formGroup]="form">
-      <mat-form-field appearance="outline">
-        <mat-label>昵称</mat-label>
-        <input matInput formControlName="name" />
-      </mat-form-field>
+    <ng-container [ngSwitch]="step()">
+      <ng-container *ngSwitchCase="1">
+        <h2>新增宠物档案</h2>
+        <p>创建基础信息，后续可在详情页补充疫苗与提醒</p>
 
-      <mat-form-field appearance="outline">
-        <mat-label>品种</mat-label>
-        <input matInput formControlName="breed" />
-      </mat-form-field>
+        <form [formGroup]="form">
+          <mat-form-field appearance="outline">
+            <mat-label>昵称 *</mat-label>
+            <input matInput formControlName="name" />
+          </mat-form-field>
+          <p-message
+            *ngIf="form.controls.name.invalid && form.controls.name.touched"
+            severity="error"
+            text="请输入昵称"
+          ></p-message>
 
-      <mat-form-field appearance="outline">
-        <mat-label>物种</mat-label>
-        <mat-select formControlName="species">
-          <mat-option value="DOG">狗</mat-option>
-          <mat-option value="CAT">猫</mat-option>
-          <mat-option value="OTHER">其他</mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>物种 *</mat-label>
+            <mat-select formControlName="species">
+              <mat-option value="DOG">狗</mat-option>
+              <mat-option value="CAT">猫</mat-option>
+              <mat-option value="OTHER">其他</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p-message
+            *ngIf="form.controls.species.invalid && form.controls.species.touched"
+            severity="error"
+            text="请选择物种"
+          ></p-message>
 
-      <mat-form-field appearance="outline">
-        <mat-label>生日</mat-label>
-        <input matInput type="date" formControlName="birthday" />
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>品种</mat-label>
+            <input matInput formControlName="breed" />
+          </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>备注</mat-label>
-        <textarea matInput rows="3" formControlName="notes"></textarea>
-      </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>生日</mat-label>
+            <input matInput type="date" formControlName="birthday" />
+          </mat-form-field>
 
-      <div class="actions">
-        <button mat-stroked-button type="button" (click)="saveDraft()">保存草稿</button>
-        <button mat-flat-button color="primary" type="button">下一步：疫苗计划</button>
-      </div>
-    </form>
+          <mat-form-field appearance="outline">
+            <mat-label>备注</mat-label>
+            <textarea matInput rows="3" formControlName="notes"></textarea>
+          </mat-form-field>
+
+          <div class="actions">
+            <button mat-stroked-button type="button" (click)="saveDraft()">保存草稿</button>
+            <button mat-flat-button color="primary" type="button" (click)="goToNext()">
+              下一步：疫苗计划
+            </button>
+          </div>
+        </form>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="2">
+        <h2>疫苗计划</h2>
+        <p>快速创建下一次提醒（后端接入后会自动保存）</p>
+
+        <form [formGroup]="scheduleForm">
+          <mat-form-field appearance="outline">
+            <mat-label>疫苗名称 *</mat-label>
+            <input matInput formControlName="vaccineName" />
+          </mat-form-field>
+          <p-message
+            *ngIf="scheduleForm.controls.vaccineName.invalid && scheduleForm.controls.vaccineName.touched"
+            severity="error"
+            text="请输入疫苗名称"
+          ></p-message>
+
+          <mat-form-field appearance="outline">
+            <mat-label>计划时间 *</mat-label>
+            <input matInput type="date" formControlName="dueDate" />
+          </mat-form-field>
+          <p-message
+            *ngIf="scheduleForm.controls.dueDate.invalid && scheduleForm.controls.dueDate.touched"
+            severity="error"
+            text="请选择时间"
+          ></p-message>
+
+          <div class="actions">
+            <button mat-stroked-button type="button" (click)="step.set(1)">上一步</button>
+            <button mat-flat-button color="primary" type="button" (click)="completeWizard()">
+              完成并提交
+            </button>
+          </div>
+        </form>
+      </ng-container>
+    </ng-container>
   </mat-card>
 </div>

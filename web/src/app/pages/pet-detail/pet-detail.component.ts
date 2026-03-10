@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -13,6 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './pet-detail.component.scss'
 })
 export class PetDetailComponent {
+  private readonly route = inject(ActivatedRoute);
+
+  readonly focus = this.route.snapshot.queryParamMap.get('focus');
+
   readonly tags = ['狂犬疫苗 3 天后', '上周腹泻记录', 'AI 建议待确认'];
 
   readonly timeline = [
