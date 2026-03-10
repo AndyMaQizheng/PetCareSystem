@@ -1,0 +1,13 @@
+# OpenClaw workspace artifacts
+.openclaw/
+.clawhub/
+.learnings/
+memory/
+skills/
+HEARTBEAT.md
+AGENTS.md
+SOUL.md
+USER.md
+TOOLS.md
+IDENTITY.md
+MEMORY.md
